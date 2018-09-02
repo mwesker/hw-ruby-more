@@ -7,7 +7,5 @@ directories %w(lib config spec).select{|d| Dir.exists?(d) ? d : UI.warning("Dire
 guard :rspec, cmd: 'rspec' do
   watch(%r{^spec/.+_spec\.rb$})
   watch(%r{^lib/(.+)\.rb}) { |m| "spec/lib/#{m[1]}_spec.rb" }
-  watch('spec/spec_helper.rb') { 'spec' }
-  watch('Guardfile')
-end
 
+end

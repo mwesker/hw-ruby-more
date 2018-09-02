@@ -1,13 +1,20 @@
 module FunWithStrings
+
   def palindrome?
-    # your code here
+    test_string = self.downcase.gsub(/[^a-z]/,"")
+    test_string.reverse.match(test_string) != nil
   end
+
   def count_words
-    # your code here
+    hash = Hash.new(0)
+    self.downcase.scan(/\w+/) {|m| hash[m] += 1 }
+    hash
   end
+  
   def anagram_groups
-    # your code here
+    self.split(' ').group_by {|e| e.downcase.chars.sort.join }.values
   end
+  
 end
 
 # make all the above functions available as instance methods on Strings:
